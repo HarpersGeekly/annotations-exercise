@@ -6,6 +6,7 @@ import java.util.List;
 
 public class Author extends Person {
     private List books;
+    //List<String> later
 
     public Author(String firstName, String lastName) {
         super(firstName, lastName);
@@ -16,20 +17,22 @@ public class Author extends Person {
      * @deprecated Use publishedBooks instead
      */
     @Deprecated
+    @SuppressWarnings({"deprecation", "unchecked"})
     public List<String> getBooks() {
         return books;
     }
 
+    @SuppressWarnings({"deprecation", "unchecked"})
     public List<String> publishedBooks() {
         return books;
     }
-
+    @SuppressWarnings({"deprecation", "unchecked"})
     public void addBook(String book) {
         books.add(book);
     }
 
-    @SuppressWarnings({"deprecation", "unchecked"})
-    public String sortName() {
+    @Override
+    public String fullName() {
         return String.format("%s, %s", lastName, firstName);
     }
 }
